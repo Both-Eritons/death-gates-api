@@ -1,0 +1,20 @@
+{
+    "name": "eriton/death-gates-api",
+    "description": "API para gerenciamento do projeto death-gates",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Api\\": "Api/",
+	    "App\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Eriton",
+            "email": "botheritons2005@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
