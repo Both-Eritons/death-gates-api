@@ -13,7 +13,8 @@ abstract class Mysql{
     self::$arr = [
       "USER" => $_ENV["DATABASE_USER"],
       "PASS" => $_ENV["DATABASE_PASS"],
-      "NAME" => $_ENV["DATABASE_NAME"]
+      "NAME" => $_ENV["DATABASE_NAME"],
+      "CONN" => "mysql:host=localhost;dbname=".$_ENV["DATABASE_NAME"]
     ];
   }
 
