@@ -4,7 +4,6 @@ namespace App\Configuration;
 
 use Slim\App;
 use Slim\Exception\HttpNotFoundException as NotFound;
-use Slim\Factory\AppFactory;
 
 class Slim{
 
