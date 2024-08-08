@@ -7,7 +7,7 @@ use Slim\Factory\AppFactory;
 
 class Api extends AppFactory {
   private $user;
-  private $api;
+  public $api;
   function __construct() {
     $this->api = self::create();
     $this->user = new UserRoutes();
