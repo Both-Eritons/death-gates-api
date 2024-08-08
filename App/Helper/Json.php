@@ -15,7 +15,7 @@ class Json{
     
     $zone = new DateTimeZone('America/Sao_Paulo'); 
     $zone = new DateTime('now', $zone);
-    $this->arr[] = array(
+    $this->arr = array(
       "message" => $msg,
       "http_code" => $code,
       "date" => $zone->format('d-m-yy h:i:s')
