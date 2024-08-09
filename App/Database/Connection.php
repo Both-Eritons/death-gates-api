@@ -8,7 +8,7 @@ use PDOException;
 
 class Connection  extends PDO{
 
-  static private PDO $sql;
+  static private ?PDO $sql;
   function __construct(){
 
     try {

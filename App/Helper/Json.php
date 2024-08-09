@@ -10,7 +10,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 class Json{
   private ?array $arr;
 
-  function send(Response $res, string $msg, int $code = 200, array $more = null): Response {
+  protected function send(Response $res, string $msg, int $code = 200, array $more = null): Response {
 
     
     $zone = new DateTimeZone('America/Sao_Paulo'); 

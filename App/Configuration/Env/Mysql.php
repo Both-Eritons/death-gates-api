@@ -12,7 +12,7 @@ abstract class Mysql{
   static private function initialize() {
     self::$arr = [
       "USER" => $_ENV["DATABASE_USER"],
-      "PASS" => $_ENV["DATABASE_PASS"],
+      "PASS" => $_ENV["DATABASE_PASSWORD"],
       "NAME" => $_ENV["DATABASE_NAME"],
       "CONN" => "mysql:host=localhost;dbname=".$_ENV["DATABASE_NAME"]
     ];
@@ -27,6 +27,6 @@ abstract class Mysql{
       return self::$arr;
     }
 
-    return self::$arr[$key];
+    return self::$arr[$key] ?? null;
   }
 }
