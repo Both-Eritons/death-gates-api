@@ -36,3 +36,71 @@ Stack trace:
 #5 /home/eriton/death-gates-api/public/index.php(15): App\Routes\Api->run()
 #6 {main}
   thrown in /home/eriton/death-gates-api/vendor/slim/slim/Slim/Middleware/RoutingMiddleware.php on line 76" while reading response header from upstream, client: ::1, server: ereto.com.br, request: "GET /api/user/registerd HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.3-fpm.sock:", host: "localhost:7777"
+2024/08/09 08:16:54 [error] 31473#31473: *29 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "DATABASE_PASS" in /home/eriton/death-gates-api/App/Configuration/Env/Mysql.php on line 15" while reading response header from upstream, client: ::1, server: ereto.com.br, request: "GET /api/user/register HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.3-fpm.sock:", host: "localhost:7777"
+2024/08/09 08:19:54 [error] 31473#31473: *31 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Error: Undefined constant "App\Database\Mysql" in /home/eriton/death-gates-api/App/Database/Connection.php:14
+Stack trace:
+#0 /home/eriton/death-gates-api/App/Database/Connection.php(35): App\Database\Connection->__construct()
+#1 /home/eriton/death-gates-api/Api/Repository/User/UserRepository.php(13): App\Database\Connection::getInstance()
+#2 /home/eriton/death-gates-api/App/Routes/UserRoutes.php(14): Api\Repository\User\UserRepository->__construct()
+#3 /home/eriton/death-gates-api/App/Routes/Api.php(13): App\Routes\UserRoutes->__construct()
+#4 /home/eriton/death-gates-api/public/index.php(13): App\Routes\Api->__construct()
+#5 {main}
+  thrown in /home/eriton/death-gates-api/App/Database/Connection.php on line 14" while reading response header from upstream, client: ::1, server: ereto.com.br, request: "GET /api/user/register HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.3-fpm.sock:", host: "localhost:7777"
+2024/08/09 08:20:53 [error] 31473#31473: *33 FastCGI sent in stderr: "PHP message: PHP Warning:  Undefined array key "DATABASE_PASS" in /home/eriton/death-gates-api/App/Configuration/Env/Mysql.php on line 15" while reading response header from upstream, client: ::1, server: ereto.com.br, request: "GET /api/user/register HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.3-fpm.sock:", host: "localhost:7777"
+2024/08/09 08:21:53 [error] 31473#31473: *37 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught TypeError: Cannot assign null to property App\Database\Connection::$sql of type PDO in /home/eriton/death-gates-api/App/Database/Connection.php:16
+Stack trace:
+#0 /home/eriton/death-gates-api/App/Database/Connection.php(34): App\Database\Connection->__construct()
+#1 /home/eriton/death-gates-api/Api/Repository/User/UserRepository.php(13): App\Database\Connection::getInstance()
+#2 /home/eriton/death-gates-api/App/Routes/UserRoutes.php(14): Api\Repository\User\UserRepository->__construct()
+#3 /home/eriton/death-gates-api/App/Routes/Api.php(13): App\Routes\UserRoutes->__construct()
+#4 /home/eriton/death-gates-api/public/index.php(13): App\Routes\Api->__construct()
+#5 {main}
+  thrown in /home/eriton/death-gates-api/App/Database/Connection.php on line 16" while reading response header from upstream, client: ::1, server: ereto.com.br, request: "GET /api/user/register HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.3-fpm.sock:", host: "localhost:7777"
+2024/08/09 08:22:47 [error] 31473#31473: *39 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught TypeError: Cannot assign null to property App\Database\Connection::$sql of type PDO in /home/eriton/death-gates-api/App/Database/Connection.php:16
+Stack trace:
+#0 /home/eriton/death-gates-api/App/Database/Connection.php(34): App\Database\Connection->__construct()
+#1 /home/eriton/death-gates-api/Api/Repository/User/UserRepository.php(13): App\Database\Connection::getInstance()
+#2 /home/eriton/death-gates-api/App/Routes/UserRoutes.php(14): Api\Repository\User\UserRepository->__construct()
+#3 /home/eriton/death-gates-api/App/Routes/Api.php(13): App\Routes\UserRoutes->__construct()
+#4 /home/eriton/death-gates-api/public/index.php(13): App\Routes\Api->__construct()
+#5 {main}
+  thrown in /home/eriton/death-gates-api/App/Database/Connection.php on line 16" while reading response header from upstream, client: ::1, server: ereto.com.br, request: "GET /api/user/register HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.3-fpm.sock:", host: "localhost:7777"
+2024/08/09 08:31:28 [error] 31473#31473: *47 FastCGI sent in stderr: "PHP message: Slim Application Error
+Type: Error
+Code: 0
+Message: Object of class Api\Repository\User\FindParams could not be converted to string
+File: /home/eriton/death-gates-api/Api/Repository/User/UserRepository.php
+Line: 27
+Trace: #0 /home/eriton/death-gates-api/Api/Controller/User/UserController.php(18): Api\Repository\User\UserRepository->find()
+#1 /home/eriton/death-gates-api/App/Routes/UserRoutes.php(19): Api\Controller\User\UserController->create()
+#2 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(38): App\Routes\UserRoutes->App\Routes\{closure}()
+#3 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Routing/Route.php(363): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /home/eriton/death-gates-api/vendor/slim/slim/Slim/MiddlewareDispatcher.php(73): Slim\Routing\Route->handle()
+#5 /home/eriton/death-gates-api/vendor/slim/slim/Slim/MiddlewareDispatcher.php(73): Slim\MiddlewareDispatcher->handle()
+#6 /home/eriton/death-gates-api/vendor/sl" while reading response header from upstream, client: ::1, server: ereto.com.br, request: "GET /api/user/register HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.3-fpm.sock:", host: "localhost:7777"
+2024/08/09 08:32:04 [error] 31474#31474: *49 FastCGI sent in stderr: "PHP message: Slim Application Error
+Type: Error
+Code: 0
+Message: Object of class Api\Repository\User\FindParams could not be converted to string
+File: /home/eriton/death-gates-api/Api/Repository/User/UserRepository.php
+Line: 27
+Trace: #0 /home/eriton/death-gates-api/Api/Controller/User/UserController.php(18): Api\Repository\User\UserRepository->find()
+#1 /home/eriton/death-gates-api/App/Routes/UserRoutes.php(19): Api\Controller\User\UserController->create()
+#2 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(38): App\Routes\UserRoutes->App\Routes\{closure}()
+#3 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Routing/Route.php(363): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /home/eriton/death-gates-api/vendor/slim/slim/Slim/MiddlewareDispatcher.php(73): Slim\Routing\Route->handle()
+#5 /home/eriton/death-gates-api/vendor/slim/slim/Slim/MiddlewareDispatcher.php(73): Slim\MiddlewareDispatcher->handle()
+#6 /home/eriton/death-gates-api/vendor/sl" while reading response header from upstream, client: ::1, server: ereto.com.br, request: "GET /api/user/register HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.3-fpm.sock:", host: "localhost:7777"
+2024/08/09 08:35:40 [error] 31474#31474: *55 FastCGI sent in stderr: "PHP message: Slim Application Error
+Type: PDOException
+Code: 42S02
+Message: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'deathgates.users' doesn't exist
+File: /home/eriton/death-gates-api/Api/Repository/User/UserRepository.php
+Line: 24
+Trace: #0 /home/eriton/death-gates-api/Api/Repository/User/UserRepository.php(24): PDOStatement->execute()
+#1 /home/eriton/death-gates-api/Api/Controller/User/UserController.php(18): Api\Repository\User\UserRepository->findById()
+#2 /home/eriton/death-gates-api/App/Routes/UserRoutes.php(19): Api\Controller\User\UserController->create()
+#3 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(38): App\Routes\UserRoutes->App\Routes\{closure}()
+#4 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Routing/Route.php(363): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#5 /home/eriton/death-gates-api/vendor/slim/slim/Slim/MiddlewareDispatcher.php(73): Slim\Routing\Route->handle()
+#6 /home/eriton/death-gates-api/ven" while reading response header from upstream, client: ::1, server: ereto.com.br, request: "GET /api/user/register HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.3-fpm.sock:", host: "localhost:7777"
