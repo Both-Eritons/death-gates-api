@@ -20,6 +20,7 @@
         "symfony/dotenv": "7.2.x-dev",
         "firebase/php-jwt": "dev-main",
         "slim/slim": "4.x-dev",
-        "slim/psr7": "dev-master"
+        "slim/psr7": "dev-master",
+        "robmorgan/phinx": "0.x-dev"
     }
 }
