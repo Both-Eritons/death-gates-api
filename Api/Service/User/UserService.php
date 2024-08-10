@@ -2,13 +2,19 @@
 
 namespace Api\Service\User;
 
-use Api\Model\User\UserModel;
 use Api\Repository\User\UserRepository;
+use App\Exception\User\NotFound;
 
 class UserService extends UserRepository{
 
-  function createUser(string $user, string $pass=null)
+  function findUserById(int $id)
   {
-    $this->find($user);
+    $user = $this->findById($id);
+
+    if(!$user) {
+      throw new NotFound();
+    }
+
+    return $user;
   }
 }
