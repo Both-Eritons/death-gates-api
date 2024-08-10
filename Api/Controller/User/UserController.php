@@ -16,7 +16,7 @@ class UserController extends Json {
 
   function create(Req $req, Res $res) {
     $c = $this->user->findById(1);
-    var_dump($c);
+    
     return $this->send($res, "funciona", 200);
   }
 }
