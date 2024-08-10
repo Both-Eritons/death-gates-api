@@ -17,18 +17,22 @@ class UserRepository extends Repository{
     $this->sql = parent::getConnection();
   }
 
-  function create(UserModel $user) {
-   $query = "";
+  function create(UserModel $user): ?UserEntity {
+    $query = "INSERT INTO ";
+
+    return null;
   }
 
-  function findById(int $id): UserEntity | null{
+  function findById(int $id): ?UserEntity{
     $query = "SELECT * FROM".$this->table."WHERE id = :id";
     $stmt = $this->sql->prepare($query);
     $stmt->execute([":id" => $id]);
 
     $row = $stmt->fetchObject("Api\Model\User\UserModel");
-    
-    return new UserEntity($row) ?? null;
+
+    if($row) return new UserEntity($row);
+
+    return null;
   }
 
 }
