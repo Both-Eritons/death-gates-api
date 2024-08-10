@@ -15,8 +15,8 @@ class UserRoutes extends Json {
   }
 
   function init(App $app) {
-    $app->get("/api/user/register", function($req, $res) {
-     return $this->user->create($req, $res);
+    $app->get("/api/user/find/{id}", function($req, $res, $args) {
+     return $this->user->findUserById($req, $res, $args);
     });
 
     $app->get('/api/user/cu', function($req, $res) {
