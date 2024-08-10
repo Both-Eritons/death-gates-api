@@ -2,15 +2,18 @@
 
 namespace Api\Repository\User;
 
+use Api\Entity\User\UserEntity;
 use Api\Model\User\UserModel;
-use App\Database\Connection;
+use Api\Repository\Repository;
+use PDO;
 
-class UserRepository{
-  private string $table = ' users ';
-  private Connection $sql;
+class UserRepository extends Repository{
 
-  function __construct(){
-    $this->sql = Connection::getInstance();
+  private $sql;
+
+  function __construct()
+  {
+    $this->sql = parent::getConnection();
   }
 
   function create(UserModel $user) {
@@ -20,8 +23,7 @@ class UserRepository{
   function findById(int $id){
     $query = "SELECT * FROM".$this->table."WHERE id = :id";
     $stmt = $this->sql->prepare($query);
-    $stmt->bindParam(":id", $id);
-    $stmt->execute();
+    $stmt->execute([":id" => $id]);
 
     $row = $stmt->fetch();
     
