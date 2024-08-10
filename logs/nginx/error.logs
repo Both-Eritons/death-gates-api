@@ -104,3 +104,117 @@ Trace: #0 /home/eriton/death-gates-api/Api/Repository/User/UserRepository.php(24
 #4 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Routing/Route.php(363): Slim\Handlers\Strategies\RequestResponse->__invoke()
 #5 /home/eriton/death-gates-api/vendor/slim/slim/Slim/MiddlewareDispatcher.php(73): Slim\Routing\Route->handle()
 #6 /home/eriton/death-gates-api/ven" while reading response header from upstream, client: ::1, server: ereto.com.br, request: "GET /api/user/register HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.3-fpm.sock:", host: "localhost:7777"
+2024/08/10 08:37:20 [error] 21132#21132: *1 FastCGI sent in stderr: "PHP message: Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Static route "/api/user/find" is shadowed by previously defined variable route "/api/user/([^/]+)" for method "GET"
+File: /home/eriton/death-gates-api/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 95
+Trace: #0 /home/eriton/death-gates-api/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /home/eriton/death-gates-api/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Routing/Dispatcher.php(34): FastRoute\RouteCollector->addRoute()
+#3 /home/eriton/death-gates-api/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Routing/Dispatcher.php(49): FastRoute\simpleDispatcher()
+#5 /home/eriton/death-gates-api/" while reading response header from upstream, client: ::1, server: ereto.com.br, request: "GET /api/user/register HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.3-fpm.sock:", host: "localhost:7777"
+2024/08/10 08:37:52 [error] 21133#21133: *3 FastCGI sent in stderr: "PHP message: Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Static route "/api/user/find" is shadowed by previously defined variable route "/api/user/([^/]+)" for method "GET"
+File: /home/eriton/death-gates-api/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 95
+Trace: #0 /home/eriton/death-gates-api/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /home/eriton/death-gates-api/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Routing/Dispatcher.php(34): FastRoute\RouteCollector->addRoute()
+#3 /home/eriton/death-gates-api/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Routing/Dispatcher.php(49): FastRoute\simpleDispatcher()
+#5 /home/eriton/death-gates-api/" while reading response header from upstream, client: ::1, server: ereto.com.br, request: "GET /api/user/register HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.3-fpm.sock:", host: "localhost:7777"
+2024/08/10 08:38:06 [error] 21134#21134: *5 FastCGI sent in stderr: "PHP message: Slim Application Error
+Type: FastRoute\BadRouteException
+Code: 0
+Message: Static route "/api/user/find" is shadowed by previously defined variable route "/api/user/([^/]+)" for method "GET"
+File: /home/eriton/death-gates-api/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php
+Line: 95
+Trace: #0 /home/eriton/death-gates-api/vendor/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php(30): FastRoute\DataGenerator\RegexBasedAbstract->addStaticRoute()
+#1 /home/eriton/death-gates-api/vendor/nikic/fast-route/src/RouteCollector.php(44): FastRoute\DataGenerator\RegexBasedAbstract->addRoute()
+#2 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Routing/Dispatcher.php(34): FastRoute\RouteCollector->addRoute()
+#3 /home/eriton/death-gates-api/vendor/nikic/fast-route/src/functions.php(25): Slim\Routing\Dispatcher->Slim\Routing\{closure}()
+#4 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Routing/Dispatcher.php(49): FastRoute\simpleDispatcher()
+#5 /home/eriton/death-gates-api/" while reading response header from upstream, client: ::1, server: ereto.com.br, request: "GET /api/user/register HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.3-fpm.sock:", host: "localhost:7777"
+2024/08/10 08:38:53 [error] 21135#21135: *7 FastCGI sent in stderr: "PHP message: Slim Application Error
+Type: Error
+Code: 0
+Message: Typed property Api\Repository\Repository::$db must not be accessed before initialization
+File: /home/eriton/death-gates-api/Api/Repository/User/UserRepository.php
+Line: 16
+Trace: #0 /home/eriton/death-gates-api/Api/Controller/User/UserController.php(18): Api\Repository\User\UserRepository->findById()
+#1 /home/eriton/death-gates-api/App/Routes/UserRoutes.php(19): Api\Controller\User\UserController->create()
+#2 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(38): App\Routes\UserRoutes->App\Routes\{closure}()
+#3 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Routing/Route.php(363): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#4 /home/eriton/death-gates-api/vendor/slim/slim/Slim/MiddlewareDispatcher.php(73): Slim\Routing\Route->handle()
+#5 /home/eriton/death-gates-api/vendor/slim/slim/Slim/MiddlewareDispatcher.php(73): Slim\MiddlewareDispatcher->handle()
+#6 /home/eriton/death-gates-" while reading response header from upstream, client: ::1, server: ereto.com.br, request: "GET /api/user/register HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.3-fpm.sock:", host: "localhost:7777"
+2024/08/10 08:42:16 [error] 21136#21136: *9 FastCGI sent in stderr: "PHP message: Slim Application Error
+Type: PDOException
+Code: HY000
+Message: SQLSTATE[HY000]: General error: No fetch class specified
+File: /home/eriton/death-gates-api/Api/Repository/User/UserRepository.php
+Line: 27
+Trace: #0 /home/eriton/death-gates-api/Api/Repository/User/UserRepository.php(27): PDOStatement->fetch()
+#1 /home/eriton/death-gates-api/Api/Controller/User/UserController.php(18): Api\Repository\User\UserRepository->findById()
+#2 /home/eriton/death-gates-api/App/Routes/UserRoutes.php(19): Api\Controller\User\UserController->create()
+#3 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(38): App\Routes\UserRoutes->App\Routes\{closure}()
+#4 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Routing/Route.php(363): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#5 /home/eriton/death-gates-api/vendor/slim/slim/Slim/MiddlewareDispatcher.php(73): Slim\Routing\Route->handle()
+#6 /home/eriton/death-gates-api/vendor/slim/slim/Slim/MiddlewareDispatc" while reading response header from upstream, client: ::1, server: ereto.com.br, request: "GET /api/user/register HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.3-fpm.sock:", host: "localhost:7777"
+2024/08/10 08:43:22 [error] 21137#21137: *11 FastCGI sent in stderr: "PHP message: Slim Application Error
+Type: PDOException
+Code: HY000
+Message: SQLSTATE[HY000]: General error: No fetch class specified
+File: /home/eriton/death-gates-api/Api/Repository/User/UserRepository.php
+Line: 28
+Trace: #0 /home/eriton/death-gates-api/Api/Repository/User/UserRepository.php(28): PDOStatement->fetch()
+#1 /home/eriton/death-gates-api/Api/Controller/User/UserController.php(18): Api\Repository\User\UserRepository->findById()
+#2 /home/eriton/death-gates-api/App/Routes/UserRoutes.php(19): Api\Controller\User\UserController->create()
+#3 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(38): App\Routes\UserRoutes->App\Routes\{closure}()
+#4 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Routing/Route.php(363): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#5 /home/eriton/death-gates-api/vendor/slim/slim/Slim/MiddlewareDispatcher.php(73): Slim\Routing\Route->handle()
+#6 /home/eriton/death-gates-api/vendor/slim/slim/Slim/MiddlewareDispatc" while reading response header from upstream, client: ::1, server: ereto.com.br, request: "GET /api/user/register HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.3-fpm.sock:", host: "localhost:7777"
+2024/08/10 08:43:27 [error] 21138#21138: *13 FastCGI sent in stderr: "PHP message: Slim Application Error
+Type: PDOException
+Code: HY000
+Message: SQLSTATE[HY000]: General error: No fetch class specified
+File: /home/eriton/death-gates-api/Api/Repository/User/UserRepository.php
+Line: 28
+Trace: #0 /home/eriton/death-gates-api/Api/Repository/User/UserRepository.php(28): PDOStatement->fetch()
+#1 /home/eriton/death-gates-api/Api/Controller/User/UserController.php(18): Api\Repository\User\UserRepository->findById()
+#2 /home/eriton/death-gates-api/App/Routes/UserRoutes.php(19): Api\Controller\User\UserController->create()
+#3 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(38): App\Routes\UserRoutes->App\Routes\{closure}()
+#4 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Routing/Route.php(363): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#5 /home/eriton/death-gates-api/vendor/slim/slim/Slim/MiddlewareDispatcher.php(73): Slim\Routing\Route->handle()
+#6 /home/eriton/death-gates-api/vendor/slim/slim/Slim/MiddlewareDispatc" while reading response header from upstream, client: ::1, server: ereto.com.br, request: "GET /api/user/register HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.3-fpm.sock:", host: "localhost:7777"
+2024/08/10 08:46:43 [error] 21132#21132: *17 FastCGI sent in stderr: "PHP message: Slim Application Error
+Type: TypeError
+Code: 0
+Message: PDOStatement::fetchObject(): Argument #1 ($class) must be a valid class name, UserEntity given
+File: /home/eriton/death-gates-api/Api/Repository/User/UserRepository.php
+Line: 29
+Trace: #0 /home/eriton/death-gates-api/Api/Repository/User/UserRepository.php(29): PDOStatement->fetchObject()
+#1 /home/eriton/death-gates-api/Api/Controller/User/UserController.php(18): Api\Repository\User\UserRepository->findById()
+#2 /home/eriton/death-gates-api/App/Routes/UserRoutes.php(19): Api\Controller\User\UserController->create()
+#3 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(38): App\Routes\UserRoutes->App\Routes\{closure}()
+#4 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Routing/Route.php(363): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#5 /home/eriton/death-gates-api/vendor/slim/slim/Slim/MiddlewareDispatcher.php(73): Slim\Routing\Route->handle()
+#6 /home/eriton/death-gates-api/ve" while reading response header from upstream, client: ::1, server: ereto.com.br, request: "GET /api/user/register HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.3-fpm.sock:", host: "localhost:7777"
+2024/08/10 08:50:35 [error] 21132#21132: *21 FastCGI sent in stderr: "PHP message: Slim Application Error
+Type: TypeError
+Code: 0
+Message: PDOStatement::fetchObject(): Argument #1 ($class) must be a valid class name, UserModel given
+File: /home/eriton/death-gates-api/Api/Repository/User/UserRepository.php
+Line: 28
+Trace: #0 /home/eriton/death-gates-api/Api/Repository/User/UserRepository.php(28): PDOStatement->fetchObject()
+#1 /home/eriton/death-gates-api/Api/Controller/User/UserController.php(18): Api\Repository\User\UserRepository->findById()
+#2 /home/eriton/death-gates-api/App/Routes/UserRoutes.php(19): Api\Controller\User\UserController->create()
+#3 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(38): App\Routes\UserRoutes->App\Routes\{closure}()
+#4 /home/eriton/death-gates-api/vendor/slim/slim/Slim/Routing/Route.php(363): Slim\Handlers\Strategies\RequestResponse->__invoke()
+#5 /home/eriton/death-gates-api/vendor/slim/slim/Slim/MiddlewareDispatcher.php(73): Slim\Routing\Route->handle()
+#6 /home/eriton/death-gates-api/ven" while reading response header from upstream, client: ::1, server: ereto.com.br, request: "GET /api/user/register HTTP/1.1", upstream: "fastcgi://unix:/var/run/php/php8.3-fpm.sock:", host: "localhost:7777"

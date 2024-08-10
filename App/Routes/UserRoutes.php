@@ -19,7 +19,7 @@ class UserRoutes extends Json {
      return $this->user->create($req, $res);
     });
 
-    $app->get('/api/user/login', function($req, $res) {
+    $app->get('/api/user/cu', function($req, $res) {
 
       return $res;
     });
