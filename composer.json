@@ -20,7 +20,12 @@
         "symfony/dotenv": "7.2.x-dev",
         "firebase/php-jwt": "dev-main",
         "slim/slim": "4.x-dev",
-        "slim/psr7": "dev-master",
-        "robmorgan/phinx": "0.x-dev"
+        "slim/psr7": "dev-master"
+    },
+    "require-dev": {
+        "damianopetrungaro/php-commitizen": "dev-master"
+    },
+    "scripts": {
+      "commit": "php ./vendor/bin/php-commitizen commit"
     }
 }
