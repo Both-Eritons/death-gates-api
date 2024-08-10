@@ -3,10 +3,10 @@
 namespace Api\Entity;
 
 abstract class Entity{
-  private ?int $id;
-  private string $username;
-  private string $password;
-  private ?string $email;
+  protected ?int $id = null;
+  protected string $username;
+  protected string $password;
+  protected string $email;
 
   public function setId(int $id): self {
     $this->id = $id;
@@ -22,7 +22,7 @@ abstract class Entity{
     return $this;
   }
 
-  public function getUsername(): string|null{
+  public function getUsername(): string{
     return $this->username;
   }
 
@@ -31,7 +31,7 @@ abstract class Entity{
     return $this;
   }
 
-  public function getPassword(): string|null{
+  public function getPassword(): string{
     return $this->password;
   }
 
@@ -40,8 +40,19 @@ abstract class Entity{
     return $this;
   }
 
-  public function getEmail(): string|null{
+  public function getEmail(): string{
     return $this->email;
+  }
+
+  function __toArray(): array {
+    $array = array(
+      "id" => $this->getId(),
+      "username" => $this->getUsername(),
+      "password" => $this->getPassword(),
+      "email" => $this->getEmail()
+    );
+
+    return $array;
   }
 
 }
