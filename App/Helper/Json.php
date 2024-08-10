@@ -7,7 +7,7 @@ use DateTimeZone;
 use Psr\Http\Message\ResponseInterface as Response;
 
 
-class Json{
+abstract class Json{
   private ?array $arr;
 
   protected function send(Response $res, string $msg, int $code = 200, array $more = null): Response {
