@@ -18,7 +18,16 @@ class UserRepository extends Repository{
   }
 
   function create(UserModel $user): ?UserEntity {
-    $query = "INSERT INTO ";
+    $query = "INSERT INTO {$this->table}(username, password, email) VALUES(:user, :pass, :email)";
+    $stmt = $this->sql->prepare($query);
+    $stmt->bindParam(":user", $user->username);
+    $stmt->bindParam(":pass", $user->password);
+    $stmt->bindParam(":email", $user->email);
+    $stmt->execute();
+
+    $row = $stmt->fetchObject("Api\Model\User\UserModel");
+
+    if($row) return new UserEntity($row);
 
     return null;
   }
