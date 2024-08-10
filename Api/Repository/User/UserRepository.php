@@ -6,6 +6,7 @@ use Api\Entity\User\UserEntity;
 use Api\Model\User\UserModel;
 use Api\Repository\Repository;
 use PDO;
+use ReflectionClass;
 
 class UserRepository extends Repository{
 
@@ -20,14 +21,14 @@ class UserRepository extends Repository{
    $query = "";
   }
 
-  function findById(int $id){
+  function findById(int $id): UserEntity | null{
     $query = "SELECT * FROM".$this->table."WHERE id = :id";
     $stmt = $this->sql->prepare($query);
     $stmt->execute([":id" => $id]);
 
-    $row = $stmt->fetch();
+    $row = $stmt->fetchObject("Api\Model\User\UserModel");
     
-    return $row ?? null;
+    return new UserEntity($row) ?? null;
   }
 
 }
