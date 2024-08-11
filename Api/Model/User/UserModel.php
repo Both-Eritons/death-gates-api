@@ -2,7 +2,7 @@
 
 namespace Api\Model\User;
 
-readonly class UserModel {
+class UserModel {
   public ?int $id;
   public string $username;
   public string $password;
