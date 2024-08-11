@@ -16,17 +16,17 @@ class UserService
 
   private array $fMsgs = [
     "shortUser" => "Usuario Curto, deve conter no minimo "
-      . Msg::USER_MIN_LENGTH . " Caracteres!",
+      . self::USER_MIN_LENGTH . " Caracteres!",
     "longUser" => "Usuario Longo, deve conter no maximo "
-      . Msg::USER_MAX_LENGTH . " Caracteres!",
+      . self::USER_MAX_LENGTH . " Caracteres!",
     "shortPass" => "Senha Curta, deve conter no minimo "
-      . Msg::PASS_MIN_LENGTH . " Caracteres!",
+      . self::PASS_MIN_LENGTH . " Caracteres!",
     "longPass" => "Senha Longa, deve conter no maximo "
-      . Msg::PASS_MAX_LENGTH . " Caracteres!",
+      . self::PASS_MAX_LENGTH . " Caracteres!",
     "shortEmail" => "Email Curto, deve conter no minimo "
-      . Msg::MAIL_MIN_LENGTH . " Caracteres!",
+      . self::MAIL_MIN_LENGTH . " Caracteres!",
     "longEmail" => "Email Longo, deve conter no maximo "
-    . Msg::MAIL_MAX_LENGTH . " Caracteres!",
+    . self::MAIL_MAX_LENGTH . " Caracteres!",
     "createUserEr" => "ocorreu algum erro ao tentar criar usuario!"
   ];
   private UserRepository $user;
@@ -43,27 +43,37 @@ class UserService
   }
 
   function createUser(
-    string $username,
-    string $password,
-    string $email
+    ?string $username,
+    ?string $password,
+    ?string $email
   ): UserEntity {
 
-    if (strlen($username) < Msg::USER_MIN_LENGTH)
+    if(!isset($username) || is_null($username))
+      throw new UserValidation("Preencha o Usuario!");
+
+    if(!isset($password) || is_null($password))
+      throw new UserValidation("Preencha a Senha!");
+
+    if(!isset($email) || is_null($email))
+      throw new UserValidation("Preencha o Email!");
+ 
+
+    if (strlen($username) < self::USER_MIN_LENGTH)
       throw new UserValidation($this->fMsgs['shortUser']);
 
-    if (strlen($username) > Msg::USER_MAX_LENGTH)
+    if (strlen($username) > self::USER_MAX_LENGTH)
       throw new UserValidation($this->fMsgs['longUser']);
 
-    if (strlen($password) < Msg::PASS_MIN_LENGTH)
+    if (strlen($password) < self::PASS_MIN_LENGTH)
       throw new UserValidation($this->fMsgs['shortPass']);
 
-    if (strlen($password) > Msg::PASS_MAX_LENGTH)
+    if (strlen($password) > self::PASS_MAX_LENGTH)
       throw new UserValidation($this->fMsgs['longPass']);
 
-    if (strlen($email) < Msg::MAIL_MIN_LENGTH)
+    if (strlen($email) < self::MAIL_MIN_LENGTH)
       throw new UserValidation($this->fMsgs['shortEmail']);
     
-    if (strlen($email) > Msg::MAIL_MAX_LENGTH)
+    if (strlen($email) > self::MAIL_MAX_LENGTH)
       throw new UserValidation($this->fMsgs['longEmail']);
 
     if ($this->user->findByUsername($username))
@@ -75,7 +85,10 @@ class UserService
     $userModel->email = $email;
 
     $user = $this->user->create($userModel);
-
-    return $user ?? throw new UserValidation($this->fMsgs["createUserEr"]);
+    if(is_null($user)) {
+      throw new UserValidation($this->fMsgs["createUserEr"]);
+    }
+    
+    return $user;
   }
 }
