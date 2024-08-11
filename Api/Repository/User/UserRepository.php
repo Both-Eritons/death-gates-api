@@ -23,11 +23,15 @@ class UserRepository extends Repository{
     $stmt->bindParam(":user", $user->username);
     $stmt->bindParam(":pass", $user->password);
     $stmt->bindParam(":email", $user->email);
-    $stmt->execute();
 
-    $row = $stmt->fetchObject("Api\Model\User\UserModel");
+    if($stmt->execute()) {
+      $row = $this->findById($this->sql->lastInsertId())
+                  ->__toModel();
+    }
 
-    if($row) return new UserEntity($row);
+    if($row) {
+      return new UserEntity($row);
+    }
 
     return null;
   }
