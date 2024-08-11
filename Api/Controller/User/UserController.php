@@ -5,7 +5,10 @@ namespace Api\Controller\User;
 use Api\Service\User\UserService;
 use App\Constant\User as UserConstant;
 use App\Exception\User\NotFound;
+use App\Exception\User\UserExists;
+use App\Exception\User\UserValidation;
 use App\Helper\Json;
+use Damianopetrungaro\PHPCommitizen\Section\Body;
 use Psr\Http\Message\ResponseInterface as Res;
 use Slim\Psr7\Request as Req;
 
@@ -26,5 +29,24 @@ class UserController extends Json {
     } catch(NotFound $e) {
       return $this->send($res, $e->getMessage(), 404);
     }
+  }
+
+  function createUser(Req $req, Res $res) {
+
+    try{
+      $body = $req->getBody();
+      $body = json_decode($body);
+
+      if(!$body->username && !$body->password && !$body->email)
+        return $this->send($res, "Preencha todos os campos...", 400);
+
+      $user = $this->user->createUser($body->username, $body->password, $body->email)->__toArray();
+
+      return $this->send($res, self::CREATED, 200, $user);
+
+    } catch (UserExists|UserValidation $e) {
+      return $this->send($res, $e->getMessage(), $e->getCode());
+    }
+
   }
 }
