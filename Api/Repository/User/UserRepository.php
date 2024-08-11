@@ -44,4 +44,17 @@ class UserRepository extends Repository{
     return null;
   }
 
+  function findByUsername(string $username): ?UserEntity{
+    $query = "SELECT * FROM".$this->table."WHERE username = :username";
+    $stmt = $this->sql->prepare($query);
+    $stmt->execute([":username" => $username]);
+
+    $row = $stmt->fetchObject("Api\Model\User\UserModel");
+
+    if($row) return new UserEntity($row);
+
+    return null;
+  }
+
+
 }
