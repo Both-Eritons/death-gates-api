@@ -2,6 +2,8 @@
 
 namespace Api\Entity;
 
+use Api\Model\User\UserModel;
+
 abstract class Entity{
   protected ?int $id = null;
   protected string $username;
@@ -55,4 +57,13 @@ abstract class Entity{
     return $array;
   }
 
+  function __toModel(): UserModel {
+    $user = new UserModel();
+    $user->id = $this->getId();
+    $user->username = $this->getUsername();
+    $user->password = $this->getPassword();
+    $user->email = $this->getEmail();
+
+    return $user;
+  }
 }
