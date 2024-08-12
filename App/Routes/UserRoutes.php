@@ -31,9 +31,8 @@ class UserRoutes extends Json {
     });
 
     
-    $app->get('/api/user/delete', function($req, $res) {
-
-      return $res;
+    $app->delete('/api/user/delete/username/{name}', function($rq, $rs, $as) {
+      return $this->user->deleteUser($rq, $rs, $as);
     });
 
     $app->get('/api/user/', function($req, $res) {

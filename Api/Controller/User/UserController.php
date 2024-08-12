@@ -61,4 +61,18 @@ class UserController extends Json
       return $this->send($res, $e->getMessage(), $e->getCode());
     }
   }
+
+  function deleteUser(Req $req, Res $res, array $args) {
+
+    try{
+      $name = (string) $args["name"];
+      $user=$this->user->deleteUserByUsername($name);
+
+      return $this->send($res, SELF::DELETED, 200);
+    } catch(UserValidation|NotFound $e) {
+     return $this->send($res,$e->getMessage(),$e->getCode()); 
+    }
+
+  }
+
 }

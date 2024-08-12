@@ -98,4 +98,15 @@ class UserService
     
     return $user;
   }
+
+  function deleteUserByUsername(string $username) {
+
+    $found = $this->findUserByUsername($username); 
+
+    if(!$found) throw new NotFound();
+
+    $user = $this->user->deleteUser("username", $username);
+
+    return $user ?? throw new UserValidation("Erro ao tentar deletar Usuario!");
+  }
 }

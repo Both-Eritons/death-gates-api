@@ -60,5 +60,16 @@ class UserRepository extends Repository{
     return null;
   }
 
+  function deleteUser(string $field, string $value): bool {
+    $query = "DELETE FROM".$this->table."WHERE $field = :res";
+    $stmt = $this->sql->prepare($query);
+    $stmt->bindParam(":res", $value);
+    $stmt->execute();
+
+    $row = $stmt->rowCount();
+
+    return $row;
+  }
 
 }
+
