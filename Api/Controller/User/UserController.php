@@ -33,6 +33,19 @@ class UserController extends Json
       return $this->send($res, $e->getMessage(), 404);
     }
   }
+  
+  function findUserByUsername(Req $req, Res $res, array $args)
+  {
+
+    try {
+      $name = $args["username"];
+      $user = $this->user->findUserById($name)->__toArray();
+
+      return $this->send($res, self::FOUND, 200, $user);
+    } catch (NotFound $e) {
+      return $this->send($res, $e->getMessage(), 404);
+    }
+  }
 
   function createUser(Req $req, Res $res)
   {
