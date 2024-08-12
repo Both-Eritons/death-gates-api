@@ -41,6 +41,13 @@ class UserService
 
     return $user ?? throw new NotFound();
   }
+  
+  function findUserByUsername(string $username): UserEntity|NotFound
+  {
+    $user = $this->user->findByUsername($username);
+
+    return $user ?? throw new NotFound();
+  }
 
   function createUser(
     ?string $username,
