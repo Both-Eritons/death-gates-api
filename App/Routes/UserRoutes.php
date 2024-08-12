@@ -18,18 +18,19 @@ class UserRoutes extends Json {
   }
 
   function init(App $app) {
-    $app->get("/api/user/find/{id}", function($rq, $rs, $as) {
+    $app->get("/api/user/find/id/{id}", function($rq, $rs, $as) {
      return $this->user->findUserById($rq, $rs, $as);
+    });
+    
+    $app->get('/api/user/find/username/{name}', function($rq, $rs, $as) {
+      return $this->user->findUserByUsername($rq, $rs, $as);
     });
 
     $app->post('/api/user/register', function($req, $res) {
       return $this->user->createUser($req, $res);
     });
 
-    $app->get('/api/user/find/{name}', function($rq, $rs, $as) {
-      return $this->user->findUserByUsername($rq, $rs, $as);
-    });
-
+    
     $app->get('/api/user/delete', function($req, $res) {
 
       return $res;
