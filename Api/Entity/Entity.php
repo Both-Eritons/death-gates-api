@@ -66,4 +66,8 @@ abstract class Entity{
 
     return $user;
   }
+
+  function __toJson(): string|false {
+    return json_encode($this->__toArray(), JSON_PRETTY_PRINT);
+  }
 }
