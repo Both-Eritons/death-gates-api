@@ -38,7 +38,7 @@ class UserController extends Json
   {
 
     try {
-      $name = $args["username"];
+      $name = $args["name"];
       $user = $this->user->findUserById($name)->__toArray();
 
       return $this->send($res, self::FOUND, 200, $user);

@@ -26,10 +26,9 @@ class UserRoutes extends Json {
       return $this->user->createUser($req, $res);
     });
 
-    /*$app->get('/api/user/find/{user}', function($rq, $rs, $as) {
-
-      return $res;
-    });*/
+    $app->get('/api/user/find/{name}', function($rq, $rs, $as) {
+      return $this->user->findUserByUsername($rq, $rs, $as);
+    });
 
     $app->get('/api/user/delete', function($req, $res) {
 
